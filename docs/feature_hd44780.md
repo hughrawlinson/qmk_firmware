@@ -11,12 +11,6 @@ LCD modules using [HD44780U](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
 
 To run these modules at 3.3V, an additional MAX660 voltage converter IC must be soldered on, along with two 10µF capacitors. See [this page](https://www.codrey.com/electronic-circuits/hack-your-16x2-lcd/) for more details.
 
-* keyboards
-* are
-* fancy
-* and
-* good
-
 ## Usage
 
 Add the following to your `rules.mk`:
