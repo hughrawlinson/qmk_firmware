@@ -4,12 +4,18 @@
 
 LCD modules using [HD44780U](https://www.sparkfun.com/datasheets/LCD/HD44780.pdf) IC or equivalent, communicating in 4-bit mode.
 
-|Module|Size          |Notes                            |
-|------|--------------|---------------------------------|
-|1602A |16x2, 5x8 dots|                                 |
-|2004A |20x4, 5x8 dots|Untested, not currently supported|
+| Module | Size           | Notes                             |
+| ------ | -------------- | --------------------------------- |
+| 1602A  | 16x2, 5x8 dots |                                   |
+| 2004A  | 20x4, 5x8 dots | Untested, not currently supported |
 
 To run these modules at 3.3V, an additional MAX660 voltage converter IC must be soldered on, along with two 10µF capacitors. See [this page](https://www.codrey.com/electronic-circuits/hack-your-16x2-lcd/) for more details.
+
+* keyboards
+* are
+* fancy
+* and
+* good
 
 ## Usage
 
@@ -23,15 +29,15 @@ HD44780_ENABLE = yes
 
 Add the following to your `config.h`:
 
-|Define                 |Default       |Description                                                                                          |
-|-----------------------|--------------|-----------------------------------------------------------------------------------------------------|
-|`HD44780_DATA_PINS`    |*Not defined* |(Required) An array of four GPIO pins connected to the display's D4-D7 pins, eg. `{ B1, B3, B2, B6 }`|
-|`HD44780_RS_PIN`       |*Not defined* |(Required) The GPIO connected to the display's RS pin                                                |
-|`HD44780_RW_PIN`       |*Not defined* |(Required) The GPIO connected to the display's RW pin                                                |
-|`HD44780_E_PIN`        |*Not defined* |(Required) The GPIO connected to the display's E pin                                                 |
-|`HD44780_DISPLAY_COLS` |`16`          |The number of visible characters on a single line of the display                                     |
-|`HD44780_DISPLAY_LINES`|`2`           |The number of visible lines on the display                                                           |
-|`HD44780_WRAP_LINES`   |*Not defined* |If defined, input characters will wrap to the next line                                              |
+| Define                  | Default       | Description                                                                                           |
+| ----------------------- | ------------- | ----------------------------------------------------------------------------------------------------- |
+| `HD44780_DATA_PINS`     | _Not defined_ | (Required) An array of four GPIO pins connected to the display's D4-D7 pins, eg. `{ B1, B3, B2, B6 }` |
+| `HD44780_RS_PIN`        | _Not defined_ | (Required) The GPIO connected to the display's RS pin                                                 |
+| `HD44780_RW_PIN`        | _Not defined_ | (Required) The GPIO connected to the display's RW pin                                                 |
+| `HD44780_E_PIN`         | _Not defined_ | (Required) The GPIO connected to the display's E pin                                                  |
+| `HD44780_DISPLAY_COLS`  | `16`          | The number of visible characters on a single line of the display                                      |
+| `HD44780_DISPLAY_LINES` | `2`           | The number of visible lines on the display                                                            |
+| `HD44780_WRAP_LINES`    | _Not defined_ | If defined, input characters will wrap to the next line                                               |
 
 ## Examples
 
@@ -87,12 +93,12 @@ This function should be called only once, before any of the other functions can 
 
 #### Arguments
 
- - `bool cursor`  
-   Whether to show the cursor.
- - `bool blink`  
-   Whether to blink the cursor, if shown.
+* `bool cursor`\
+  Whether to show the cursor.
+* `bool blink`\
+  Whether to blink the cursor, if shown.
 
----
+***
 
 ### `void hd44780_clear(void)`
 
@@ -100,7 +106,7 @@ Clear the display.
 
 This function is called on init.
 
----
+***
 
 ### `void hd44780_home(void)`
 
@@ -108,7 +114,7 @@ Move the cursor to the home position.
 
 This function is called on init.
 
----
+***
 
 ### `void hd44780_on(bool cursor, bool blink)`
 
@@ -118,18 +124,18 @@ This function is called on init.
 
 #### Arguments
 
- - `bool cursor`  
-   Whether to show the cursor.
- - `bool blink`  
-   Whether to blink the cursor, if shown.
+* `bool cursor`\
+  Whether to show the cursor.
+* `bool blink`\
+  Whether to blink the cursor, if shown.
 
----
+***
 
 ### `void hd44780_off(void)`
 
 Turn the display off.
 
----
+***
 
 ### `void hd44780_set_cursor(uint8_t col, uint8_t line)`
 
@@ -137,25 +143,25 @@ Move the cursor to the specified position on the display.
 
 #### Arguments
 
- - `uint8_t col`  
-   The column number to move to, from 0 to 15 on 16x2 displays.
- - `bool line`  
-   The line number to move to, either 0 or 1 on 16x2 displays.
+* `uint8_t col`\
+  The column number to move to, from 0 to 15 on 16x2 displays.
+* `bool line`\
+  The line number to move to, either 0 or 1 on 16x2 displays.
 
----
+***
 
 ### `void hd44780_putc(char c)`
 
-Print a character to the display. The newline character `\n` will move the cursor to the start of the next line.
+Print a character to the display. The newline character  will move the cursor to the start of the next line.
 
 The exact character shown may depend on the ROM code of your particular display - refer to the datasheet for the full character set.
 
 #### Arguments
 
- - `char c`  
-   The character to print.
+* `char c`\
+  The character to print.
 
----
+***
 
 ### `void hd44780_puts(const char *s)`
 
@@ -163,10 +169,10 @@ Print a string of characters to the display.
 
 #### Arguments
 
- - `const char *s`  
-   The string to print.
+* `const char *s`\
+  The string to print.
 
----
+***
 
 ### `void hd44780_puts_P(const char *s)`
 
@@ -176,10 +182,10 @@ On ARM devices, this function is simply an alias of `hd44780_puts()`.
 
 #### Arguments
 
- - `const char *s`  
-   The PROGMEM string to print (ie. `PSTR("Hello")`).
+* `const char *s`\
+  The PROGMEM string to print (ie. `PSTR("Hello")`).
 
----
+***
 
 ### `void hd44780_define_char(uint8_t index, uint8_t *data)`
 
@@ -187,12 +193,12 @@ Define a custom character.
 
 #### Arguments
 
- - `uint8_t index`  
-   The index of the custom character to define, from 0 to 7.
- - `uint8_t *data`  
-   An array of 8 bytes containing the 5-bit row data of the character, where the first byte is the topmost row, and the least significant bit of each byte is the rightmost column.
+* `uint8_t index`\
+  The index of the custom character to define, from 0 to 7.
+* `uint8_t *data`\
+  An array of 8 bytes containing the 5-bit row data of the character, where the first byte is the topmost row, and the least significant bit of each byte is the rightmost column.
 
----
+***
 
 ### `void hd44780_define_char_P(uint8_t index, const uint8_t *data)`
 
@@ -202,12 +208,12 @@ On ARM devices, this function is simply an alias of `hd44780_define_char()`.
 
 #### Arguments
 
- - `uint8_t index`  
-   The index of the custom character to define, from 0 to 7.
- - `const uint8_t *data`  
-   A PROGMEM array of 8 bytes containing the 5-bit row data of the character, where the first byte is the topmost row, and the least significant bit of each byte is the rightmost column.
+* `uint8_t index`\
+  The index of the custom character to define, from 0 to 7.
+* `const uint8_t *data`\
+  A PROGMEM array of 8 bytes containing the 5-bit row data of the character, where the first byte is the topmost row, and the least significant bit of each byte is the rightmost column.
 
----
+***
 
 ### `bool hd44780_busy(void)`
 
@@ -217,7 +223,7 @@ Indicates whether the display is currently processing, and cannot accept instruc
 
 `true` if the display is busy.
 
----
+***
 
 ### `void hd44780_write(uint8_t data, bool isData)`
 
@@ -225,12 +231,12 @@ Write a byte to the display.
 
 #### Arguments
 
- - `uint8_t data`  
-   The byte to send to the display.
- - `bool isData`  
-   Whether the byte is an instruction or character data.
+* `uint8_t data`\
+  The byte to send to the display.
+* `bool isData`\
+  Whether the byte is an instruction or character data.
 
----
+***
 
 ### `uint8_t hd44780_read(bool isData)`
 
@@ -238,14 +244,14 @@ Read a byte from the display.
 
 #### Arguments
 
- - `bool isData`  
-   Whether to read the current cursor position, or the character at the cursor.
+* `bool isData`\
+  Whether to read the current cursor position, or the character at the cursor.
 
 #### Return Value
 
 If `isData` is `true`, the returned byte will be the character at the current DDRAM address. Otherwise, it will be the current DDRAM address and the busy flag.
 
----
+***
 
 ### `void hd44780_command(uint8_t command)`
 
@@ -255,10 +261,10 @@ This function waits for the display to clear the busy flag before sending the co
 
 #### Arguments
 
- - `uint8_t command`  
-   The command to send.
+* `uint8_t command`\
+  The command to send.
 
----
+***
 
 ### `void hd44780_data(uint8_t data)`
 
@@ -268,10 +274,10 @@ This function waits for the display to clear the busy flag before sending the da
 
 #### Arguments
 
- - `uint8_t data`  
-   The byte of data to send.
+* `uint8_t data`\
+  The byte of data to send.
 
----
+***
 
 ### `void hd44780_set_cgram_address(uint8_t address)`
 
@@ -281,10 +287,10 @@ This function is used when defining custom characters.
 
 #### Arguments
 
- - `uint8_t address`  
-   The CGRAM address to move to, from `0x00` to `0x3F`.
+* `uint8_t address`\
+  The CGRAM address to move to, from `0x00` to `0x3F`.
 
----
+***
 
 ### `void hd44780_set_ddram_address(uint8_t address)`
 
@@ -294,5 +300,5 @@ This function is used when printing characters to the display, and setting the c
 
 #### Arguments
 
- - `uint8_t address`  
-   The DDRAM address to move to, from `0x00` to `0x7F`.
+* `uint8_t address`\
+  The DDRAM address to move to, from `0x00` to `0x7F`.
